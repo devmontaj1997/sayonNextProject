@@ -30,4 +30,4 @@ const IconInputComponent: React.FC<IconInputComponentProps> = ({
   );
 };
 
-export default IconInputComponent;
+export default IconInputComponent; 
