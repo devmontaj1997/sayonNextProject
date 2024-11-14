@@ -12,15 +12,15 @@ const IconInputComponent: React.FC<IconInputComponentProps> = ({
       <div
         className="w-[98%] 
         rounded-[5px] 
+        
         bg-[#373737] 
-        p-2"
+        " style={{padding:"4px 2px 0px 2px", height:"30px"}}
       >
-        <div className="icons flex justify-between gap-3">
+        <div className="icons flex justify-between gap-3 ">
           {icons.map((Icon, index) => (
             <div key={index} onClick={() => setActiveIndex(index)}>
-              <Icon
-                className={`text-[#fff] inline-block p-1 text-[18px] ${activeIndex === index ? "active" : ""
-                }`}
+              <Icon 
+                className={`text-[#fff] w-6 h-6  ${activeIndex === index ? "active" : ""}`} style={{padding:"4px"}}
               />
             </div>
           ))}
@@ -30,4 +30,4 @@ const IconInputComponent: React.FC<IconInputComponentProps> = ({
   );
 };
 
-export default IconInputComponent; 
+export default IconInputComponent;
