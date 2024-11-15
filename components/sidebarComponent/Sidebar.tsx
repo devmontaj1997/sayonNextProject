@@ -33,7 +33,6 @@ import {
   Shrink,
 } from "lucide-react";
 import InputBox from "../InputBox/InputBox";
-import IconInputComponent from "../iconInputComponents/IconInputComponent";
 import { FlipHorizontal, RotateCw, FlipVertical } from "lucide-react";
 import FormGroup from "@mui/material/FormGroup";
 
@@ -45,9 +44,16 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { MuiColorInput } from "mui-color-input";
+import InputIcon from "../InputIcon/InputIcon";
 
 const Sidebar = (): React.JSX.Element => {
   const [inputValue, setInputValue] = React.useState("");
+  const [value, setValue] = React.useState<string>("#ffffff");
+
+  const handleChange = (newValue: string) => {
+    setValue(newValue);
+  };
   return (
     <div className="my-10 mx-10">
       <div className="container ">
@@ -97,10 +103,12 @@ const Sidebar = (): React.JSX.Element => {
                           Heigth
                         </h3>
                         <div className="hightInput">
-                          <InputBox value={inputValue}
+                          <InputBox
+                            value={inputValue}
                             onChange={(e) => setInputValue(e.target.value)}
                             placeholder="512"
-                            type="text" />
+                            type="text"
+                          />
                         </div>
                       </div>
                     </div>
@@ -121,15 +129,28 @@ const Sidebar = (): React.JSX.Element => {
 
                       <div className="angleInputAndIcon grid grid-cols-6 gap-1">
                         <div className="angleInput col-span-3">
-                          <InputBox value={inputValue}
+                          <InputBox
+                            value={inputValue}
                             onChange={(e) => setInputValue(e.target.value)}
                             placeholder="512"
-                            type="text" />
+                            type="text"
+                          />
                         </div>
                         <div className="rotationIcon col-span-3">
-                          <IconInputComponent
-                            icons={[RotateCw, FlipHorizontal, FlipVertical]}
-                          />
+                          <InputIcon>
+                            <RotateCw
+                              className="text-[#fff] w-6 h-6"
+                              style={{ padding: "4px" }}
+                            />
+                            <FlipHorizontal
+                              className="text-[#fff] w-6 h-6"
+                              style={{ padding: "4px" }}
+                            />
+                            <FlipVertical
+                              className="text-[#fff] w-6 h-6"
+                              style={{ padding: "4px" }}
+                            />
+                          </InputIcon>
                         </div>
                       </div>
                     </div>
@@ -150,10 +171,12 @@ const Sidebar = (): React.JSX.Element => {
 
                       <div className="connerRedusInputAndIcon grid grid-cols-6  gap-1">
                         <div className="connerRedusInput col-span-2">
-                          <InputBox value={inputValue}
+                          <InputBox
+                            value={inputValue}
                             onChange={(e) => setInputValue(e.target.value)}
                             placeholder="512"
-                            type="text" />
+                            type="text"
+                          />
                         </div>
                         <div
                           style={{ padding: "4px 2px 0px 2px", height: "30px" }}
@@ -162,9 +185,20 @@ const Sidebar = (): React.JSX.Element => {
                           <Radius className=" w-5 h-5 mx-auto" />
                         </div>
                         <div className="rotationIcon col-span-3">
-                          <IconInputComponent
-                            icons={[RotateCw, FlipHorizontal, FlipVertical]}
-                          />
+                          <InputIcon>
+                            <RotateCw
+                              className="text-[#fff] w-6 h-6"
+                              style={{ padding: "4px" }}
+                            />
+                            <FlipHorizontal
+                              className="text-[#fff] w-6 h-6"
+                              style={{ padding: "4px" }}
+                            />
+                            <FlipVertical
+                              className="text-[#fff] w-6 h-6"
+                              style={{ padding: "4px" }}
+                            />
+                          </InputIcon>
                         </div>
                       </div>
                     </div>
@@ -178,7 +212,7 @@ const Sidebar = (): React.JSX.Element => {
 
           {/* Background Area start */}
 
-          <div className="BackgroundArea border-t-[2px] border-t-[#373737] ">
+          <div className="BackgroundArea border-y-[2px] border-y-[#373737] ">
             <div className="BackgroundAreatop p-[12px]">
               <Accordion type="single" collapsible>
                 <AccordionItem value="item-1">
@@ -205,15 +239,11 @@ const Sidebar = (): React.JSX.Element => {
           focus:outline-none"
                         style={{ padding: "2px" }}
                       >
-                        <div>
-                          <input
-                            type="color"
-                            className="border-none outline-none p-0"
-                          />
-                        </div>
-                        <div>
-                          <h3 className="text-white">#00000</h3>
-                        </div>
+                        <MuiColorInput
+                          format="hex"
+                          value={value}
+                          onChange={handleChange}
+                        />
                       </div>
 
                       <div className="AppearanceInput col-span-3">
@@ -277,16 +307,32 @@ const Sidebar = (): React.JSX.Element => {
                       </div>
                       <div className="bgImgInputAndIcon grid grid-cols-6 items-center justify-end gap-1">
                         <div className="bgImgInput col-span-6">
-                          <IconInputComponent
-                            icons={[
-                              ChevronFirst,
-                              ChevronsDownUp,
-                              ChevronLast,
-                              Maximize2,
-                              Fullscreen,
-                              Shrink,
-                            ]}
-                          />
+                          <InputIcon>
+                            <ChevronFirst
+                              className="text-[#fff] w-6 h-6"
+                              style={{ padding: "4px" }}
+                            />
+                            <ChevronsDownUp
+                              className="text-[#fff] w-6 h-6"
+                              style={{ padding: "4px" }}
+                            />
+                            <ChevronLast
+                              className="text-[#fff] w-6 h-6"
+                              style={{ padding: "4px" }}
+                            />
+                            <Maximize2
+                              className="text-[#fff] w-6 h-6"
+                              style={{ padding: "4px" }}
+                            />
+                            <Fullscreen
+                              className="text-[#fff] w-6 h-6"
+                              style={{ padding: "4px" }}
+                            />
+                            <Shrink
+                              className="text-[#fff] w-6 h-6"
+                              style={{ padding: "4px" }}
+                            />
+                          </InputIcon>
                         </div>
                       </div>
                     </div>
@@ -492,20 +538,26 @@ const Sidebar = (): React.JSX.Element => {
                     <div className="textAlineIconArea  grid grid-cols-6 gap-2">
                       <div className="textAlignIconLeft col-span-3 ">
                         <div className="bgImgInput col-span-5">
-                          <IconInputComponent
-                            icons={[AlignLeft, AlignCenter, AlignJustify]}
-                          />
+                          <InputIcon>
+                            <AlignLeft className="text-[#fff] w-6 h-6"
+                              style={{ padding: "4px" }} />
+                            <AlignCenter className="text-[#fff] w-6 h-6"
+                              style={{ padding: "4px" }} />
+                            <AlignJustify className="text-[#fff] w-6 h-6"
+                              style={{ padding: "4px" }} />
+                          </InputIcon>
                         </div>
                       </div>
                       <div className="textAlignIconRight col-span-3 ">
                         <div className="bgImgInput col-span-5">
-                          <IconInputComponent
-                            icons={[
-                              ArrowDownToLine,
-                              FoldVertical,
-                              ArrowUpToLine,
-                            ]}
-                          />
+                          <InputIcon>
+                            <ArrowDownToLine className="text-[#fff] w-6 h-6"
+                              style={{ padding: "4px" }} />
+                            <FoldVertical className="text-[#fff] w-6 h-6"
+                              style={{ padding: "4px" }} />
+                            <ArrowUpToLine className="text-[#fff] w-6 h-6"
+                              style={{ padding: "4px" }} />
+                          </InputIcon>
                         </div>
                       </div>
                     </div>
@@ -523,23 +575,19 @@ const Sidebar = (): React.JSX.Element => {
                       </div>
                     </div>
 
-                    <div className="TextFillcolorPickerArea flex items-center gap-1">
+                    <div className="TextFillcolorPickerArea grid grid-cols-6 gap-1">
                       <div
-                        className="TextFillcolorInput flex gap-1 rounded-[5px] bg-[#373737]  border border-transparent hover:border-[#6A6A6A] focus:border-[#726FFF] focus:outline-none"
+                        className="TextFillcolorInput col-span-3 w-[100%]  rounded-[5px] bg-[#373737]  border border-transparent hover:border-[#6A6A6A] focus:border-[#726FFF] focus:outline-none"
                         style={{ padding: "2px" }}
                       >
-                        <div>
-                          <input
-                            type="color"
-                            className="border-none outline-none p-0"
-                          />
-                        </div>
-                        <div>
-                          <h3 className="text-white">#00000</h3>
-                        </div>
+                        <MuiColorInput
+                          format="hex"
+                          value={value}
+                          onChange={handleChange}
+                        />
                       </div>
 
-                      <div className="AppearanceInput">
+                      <div className="AppearanceInput col-span-3">
                         <input className="custom-range" type="range" />
                       </div>
                     </div>
@@ -753,17 +801,13 @@ const Sidebar = (): React.JSX.Element => {
                         <div className="colorPickerArea grid grid-cols-6 gap-1">
                           <div
                             style={{ padding: "2px 4px" }}
-                            className="colorInput flex gap-1 col-span-3 rounded-[5px] bg-[#373737]  border border-transparent hover:border-[#6A6A6A] focus:border-[#726FFF] focus:outline-none"
+                            className="colorInput col-span-3 rounded-[5px] bg-[#373737]  border border-transparent hover:border-[#6A6A6A] focus:border-[#726FFF] focus:outline-none"
                           >
-                            <div>
-                              <input
-                                type="color"
-                                className="border-none outline-none p-0"
-                              />
-                            </div>
-                            <div className="">
-                              <h3 className="text-white text-xs ">#00000</h3>
-                            </div>
+                            <MuiColorInput
+                              format="hex"
+                              value={value}
+                              onChange={handleChange}
+                            />
                           </div>
 
                           <div className="AppearanceInput col-span-3">
@@ -1001,15 +1045,18 @@ const Sidebar = (): React.JSX.Element => {
                 </div>
                 <div className="justifyContenInputAndIcon grid grid-cols-5">
                   <div className="bgImgInput col-span-5">
-                    <IconInputComponent
-                      icons={[
-                        AlignHorizontalSpaceBetween,
-                        AlignHorizontalSpaceAround,
-                        AlignHorizontalJustifyCenter,
-                        AlignHorizontalJustifyStart,
-                        AlignHorizontalJustifyEnd,
-                      ]}
-                    />
+                    <InputIcon>
+                      <AlignHorizontalSpaceBetween className="text-[#fff] w-6 h-6"
+                              style={{ padding: "4px" }} />
+                      <AlignHorizontalSpaceAround className="text-[#fff] w-6 h-6"
+                              style={{ padding: "4px" }} />
+                      <AlignHorizontalJustifyCenter className="text-[#fff] w-6 h-6"
+                              style={{ padding: "4px" }} />
+                      <AlignHorizontalJustifyStart  className="text-[#fff] w-6 h-6"
+                              style={{ padding: "4px" }} />
+                      <AlignHorizontalJustifyEnd  className="text-[#fff] w-6 h-6"
+                              style={{ padding: "4px" }}/>
+                    </InputIcon>
                   </div>
                 </div>
               </div>
@@ -1021,15 +1068,18 @@ const Sidebar = (): React.JSX.Element => {
                 </div>
                 <div className="AlignItemsInputAndIcon grid grid-cols-5">
                   <div className="AlignItemsInput col-span-5">
-                    <IconInputComponent
-                      icons={[
-                        AlignVerticalSpaceBetween,
-                        AlignVerticalSpaceAround,
-                        AlignVerticalJustifyCenter,
-                        AlignVerticalJustifyEnd,
-                        AlignVerticalJustifyStart,
-                      ]}
-                    />
+                    <InputIcon>
+                      <AlignVerticalSpaceBetween  className="text-[#fff] w-6 h-6"
+                              style={{ padding: "4px" }} />
+                      <AlignVerticalSpaceAround className="text-[#fff] w-6 h-6"
+                              style={{ padding: "4px" }} />
+                      <AlignVerticalJustifyCenter className="text-[#fff] w-6 h-6"
+                              style={{ padding: "4px" }} />
+                      <AlignVerticalJustifyEnd className="text-[#fff] w-6 h-6"
+                              style={{ padding: "4px" }} />
+                      <AlignVerticalJustifyStart className="text-[#fff] w-6 h-6"
+                              style={{ padding: "4px" }} />
+                    </InputIcon>
                   </div>
                 </div>
               </div>
@@ -1054,15 +1104,21 @@ const Sidebar = (): React.JSX.Element => {
                     style={{ padding: "2px 4px" }}
                     className="colorInput flex gap-1 rounded-[5px] bg-[#373737] w-[100%]  border border-transparent hover:border-[#6A6A6A] focus:border-[#726FFF] focus:outline-none"
                   >
-                    <div>
+                    <MuiColorInput
+                      format="hex"
+                      value={value}
+                      onChange={handleChange}
+                    />
+                    {/* <div>
                       <input
                         type="color"
                         className="border-none outline-none p-0"
                       />
                     </div>
+
                     <div>
                       <h3 className="text-white text-xs">#00000</h3>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
                 <div className="AppearanceInput col-span-3">
@@ -1076,15 +1132,11 @@ const Sidebar = (): React.JSX.Element => {
                     style={{ padding: "2px 4px" }}
                     className="colorInput flex gap-1 w-[100%] rounded-[5px] bg-[#373737]  border border-transparent hover:border-[#6A6A6A] focus:border-[#726FFF] focus:outline-none"
                   >
-                    <div>
-                      <input
-                        type="color"
-                        className="border-none outline-none p-0"
-                      />
-                    </div>
-                    <div>
-                      <h3 className="text-white text-xs">#00000</h3>
-                    </div>
+                    <MuiColorInput
+                      format="hex"
+                      value={value}
+                      onChange={handleChange}
+                    />
                   </div>
                 </div>
                 <div className="AppearanceInput col-span-3">
@@ -1098,15 +1150,11 @@ const Sidebar = (): React.JSX.Element => {
                     style={{ padding: "2px 4px" }}
                     className="colorInput flex gap-1  w-[100%] rounded-[5px] bg-[#373737]  border border-transparent hover:border-[#6A6A6A] focus:border-[#726FFF] focus:outline-none"
                   >
-                    <div>
-                      <input
-                        type="color"
-                        className="border-none outline-none p-0"
-                      />
-                    </div>
-                    <div>
-                      <h3 className="text-white text-xs">#00000</h3>
-                    </div>
+                    <MuiColorInput
+                      format="hex"
+                      value={value}
+                      onChange={handleChange}
+                    />
                   </div>
                 </div>
 
@@ -1116,20 +1164,16 @@ const Sidebar = (): React.JSX.Element => {
               </div>
 
               <div className="colorFour grid grid-cols-6 gap-1">
-                <div className="colorPickerArea col-span-3 flex items-center gap-1">
+                <div className="colorPickerArea col-span-3  gap-1">
                   <div
                     style={{ padding: "2px 4px" }}
                     className="colorInput flex w-[100%] gap-1 rounded-[5px] bg-[#373737]  border border-transparent hover:border-[#6A6A6A] focus:border-[#726FFF] focus:outline-none"
                   >
-                    <div>
-                      <input
-                        type="color"
-                        className="border-none outline-none p-0"
-                      />
-                    </div>
-                    <div>
-                      <h3 className="text-white text-xs">#00000</h3>
-                    </div>
+                    <MuiColorInput
+                      format="hex"
+                      value={value}
+                      onChange={handleChange}
+                    />
                   </div>
                 </div>
                 <div className="AppearanceInput col-span-3">

@@ -35,6 +35,9 @@
     border-radius: 50%;
     cursor: pointer;
   }
+  * {
+    border-color: transparent;
+}
   
   @layer base {
   :root {
@@ -105,4 +108,26 @@
    
     }
    
+}
+
+.css-2u11ia-MuiInputBase-input-MuiOutlinedInput-input {
+
+  color: white;
+ padding: 4px 0 5px;
+ border: none !important;
+  padding: 0px;
+  
+}
+.css-4bojcr-MuiInputBase-root-MuiOutlinedInput-root {
+
+  border-radius: 0px; 
+  border: none !important;
+  padding-left: 0px;
+}
+.css-1ll44ll-MuiOutlinedInput-notchedOutline {
+  border: none !important;
+  
+}
+button.MuiButtonBase-root{
+  width: 40px;
 }
